@@ -49,6 +49,8 @@ class FreeplayState extends MusicBeatState
 	var bg:FlxSprite;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
+ var bg2:FlxSprite;
+ var bg3:FlxSprite;
 
 	override function create()
 	{
@@ -106,20 +108,19 @@ class FreeplayState extends MusicBeatState
 		bg = new FlxSprite().loadGraphic(Paths.image('all/images/chessbg'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
-		bg.screenCenter();
+  bg.screenCenter();
 
 		bg2 = newFlxSprite().loadGraphic(Paths.image('all/images/chess'));
 		bg2.antialiasing = ClientPrefs.globalAntialiasing;
-        bg2.screenCenter();
 		add(bg2);
+  bg2.screenCenter();
 
         bg3 = newFlxSprite(-140,-325).loadGraphic(Paths.image('all/images/backFreeplay'));
 		bg3.animation.addByPrefix('idleA','hi',24,true);
-		bg3.animation.play('idleA')
+		bg3.animation.play('idleA');
 		bg3.antialiasing = ClientPrefs.globalAntialiasing;
-        bg3.screenCenter(Y);
 		add(bg3);
-
+  bg3.screenCenter(Y);
 		
 		grpSongs = new FlxTypedGroup<Alphabet>();
 		grpSongs.screenCenter();
