@@ -108,13 +108,13 @@ class FreeplayState extends MusicBeatState
 		add(bg);
 		bg.screenCenter();
 
-		bg2 = newFlxSprite().loadGraphic(Paths.image('all/images/chess'))
+		bg2 = newFlxSprite().loadGraphic(Paths.image('all/images/chess'));
 		bg2.antialiasing = ClientPrefs.globalAntialiasing;
         bg2.screenCenter();
 		add(bg2);
 
-        bg3 = newFlxSprite(-140,-325).loadGraphic(Paths.image('all/images/backFreeplay'))
-		bg3.animation.addByPrefix('idleA','hi',24,true)
+        bg3 = newFlxSprite(-140,-325).loadGraphic(Paths.image('all/images/backFreeplay'));
+		bg3.animation.addByPrefix('idleA','hi',24,true);
 		bg3.animation.play('idleA')
 		bg3.antialiasing = ClientPrefs.globalAntialiasing;
         bg3.screenCenter(Y);
@@ -150,7 +150,7 @@ class FreeplayState extends MusicBeatState
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			 songText.screenCenter(X);
+			// songText.screenCenter(X);
 		}
 		WeekData.setDirectoryFromWeek();
 
