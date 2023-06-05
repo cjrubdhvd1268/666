@@ -33,12 +33,12 @@ class MainMenuState extends MusicBeatState
 	private var camAchievement:FlxCamera;
 	
 	var optionShit:Array<String> = [
-		//'story_mode',
+		'story_mode',
 		'freeplay',
 		#if MODS_ALLOWED 'mods', #end
-		//#if ACHIEVEMENTS_ALLOWED 'awards', #end
-		//'credits',
-		//#if !switch 'donate', #end
+		#if ACHIEVEMENTS_ALLOWED 'awards', #end
+		'credits',
+		#if !switch 'donate', #end
 		'options'
 	];
 
@@ -77,10 +77,8 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('all/images/back_menu'));
-		bg.animation.addByPrefix('idlebg','hi',24,true)
-		bg.scrollFactor.set(0.yScroll)
-		bg.animation.play('idlebg')
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
 		bg.screenCenter();
@@ -167,13 +165,6 @@ class MainMenuState extends MusicBeatState
 
 		super.create();
 	}
-	char = new FlxSprite(820,170).loadGraphic(Paths.image('all/images/backMenu))
-	char.frames = Paths.getSparrowAtlas('all/images/backMenu')
-	char.animation.addByPrefix('idleR','hi',24,true);
-	char.animation.play('idleR')
-	char.scrollFactor.set()
-	char.antialiasing = ClientPrefs.globalAntialising;
-	add(char);
 
 	#if ACHIEVEMENTS_ALLOWED
 	// Unlocks "Freaky on a Friday Night" achievement
@@ -251,12 +242,12 @@ class MainMenuState extends MusicBeatState
 
 								switch (daChoice)
 								{
-									//case 'story_mode':
+									case 'story_mode':
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
 									#if MODS_ALLOWED
-									//case 'mods':
+									case 'mods':
 										MusicBeatState.switchState(new ModsMenuState());
 									#end
 									case 'awards':
