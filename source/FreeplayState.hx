@@ -101,13 +101,28 @@ class FreeplayState extends MusicBeatState
 				addSong(songArray[0], 0, songArray[1], Std.parseInt(songArray[2]));
 			}
 		}*/
+		
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image('all/images/chessbg'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 		bg.screenCenter();
 
+		bg2 = newFlxSprite().loadGraphic(Paths.image('all/images/chess'))
+		bg2.antialiasing = ClientPrefs.globalAntialiasing;
+        bg2.screenCenter();
+		add(bg2);
+
+        bg3 = newFlxSprite(-140,-325).loadGraphic(Paths.image('all/images/backFreeplay'))
+		bg3.animation.addByPrefix('idleA','hi',24,true)
+		bg3.animation.play('idleA')
+		bg3.antialiasing = ClientPrefs.globalAntialiasing;
+        bg3.screenCenter(y);
+		add(bg3);
+
+		
 		grpSongs = new FlxTypedGroup<Alphabet>();
+		grpSongs.screenCenter();
 		add(grpSongs);
 
 		for (i in 0...songs.length)
@@ -116,6 +131,7 @@ class FreeplayState extends MusicBeatState
 			songText.isMenuItem = true;
 			songText.targetY = i - curSelected;
 			grpSongs.add(songText);
+			songTexr.screenCenter();
 
 			var maxWidth = 980;
 			if (songText.width > maxWidth)
@@ -138,15 +154,19 @@ class FreeplayState extends MusicBeatState
 		}
 		WeekData.setDirectoryFromWeek();
 
-		scoreText = new FlxText(FlxG.width * 0.7, 5, 0, "", 32);
+		scoreText = new FlxText(FlxG.width * 0.375, 5, 0, "", 32);
 		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
+        scoreText.screenCenter(X);
 
 		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 66, 0xFF000000);
 		scoreBG.alpha = 0.6;
+		scoreBG.screenCenter(X)
 		add(scoreBG);
+
 
 		diffText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
 		diffText.font = scoreText.font;
+		diffText.screenCenter(X)
 		add(diffText);
 
 		add(scoreText);
