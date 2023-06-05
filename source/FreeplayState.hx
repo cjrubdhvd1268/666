@@ -117,7 +117,7 @@ class FreeplayState extends MusicBeatState
 		bg3.animation.addByPrefix('idleA','hi',24,true)
 		bg3.animation.play('idleA')
 		bg3.antialiasing = ClientPrefs.globalAntialiasing;
-        bg3.screenCenter(y);
+        bg3.screenCenter(Y);
 		add(bg3);
 
 		
@@ -131,7 +131,7 @@ class FreeplayState extends MusicBeatState
 			songText.isMenuItem = true;
 			songText.targetY = i - curSelected;
 			grpSongs.add(songText);
-			songTexr.screenCenter();
+			songText.screenCenter();
 
 			var maxWidth = 980;
 			if (songText.width > maxWidth)
@@ -150,23 +150,23 @@ class FreeplayState extends MusicBeatState
 
 			// songText.x += 40;
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
-			// songText.screenCenter(X);
+			 songText.screenCenter(X);
 		}
 		WeekData.setDirectoryFromWeek();
 
 		scoreText = new FlxText(FlxG.width * 0.375, 5, 0, "", 32);
 		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
-        scoreText.screenCenter(X);
+     
 
 		scoreBG = new FlxSprite(scoreText.x - 6, 0).makeGraphic(1, 66, 0xFF000000);
 		scoreBG.alpha = 0.6;
-		scoreBG.screenCenter(X)
+		scoreBG.screenCenter(X);
 		add(scoreBG);
 
 
 		diffText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
 		diffText.font = scoreText.font;
-		diffText.screenCenter(X)
+		diffText.screenCenter(X);
 		add(diffText);
 
 		add(scoreText);
